@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+*{
+   
+    font-family: 'Lato', sans-serif;
+}
+
+body{
+    background: #F1FAFF;
+}
+/*------------------------------------------definicion de la ubicacion de las tarjetas------*/
+.container__card{
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 100px;
+    perspective: 1000px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+/*----------------------------------espacio de separacion entre las dos tarjetas-------------*/
+.card__father{
+    margin: 20px;
+    perspective: 1000px;
+}
+
+.card__father:hover .card{
+    /*IMPORTANTE--------------------------------------rotacion hacia atras----------------*/  
+    transform: rotateY(180deg);
+}
+
+
+.card{
+    width: 350px;
+    height: 400px;
+    position: relative;
+    /*IMPORTANTE --------------------------------mostrar el texto que esta detras*/
+    transform-style: preserve-3d;
+    transition: all 600ms;
+}
+/*------------------------------------------evitar imagen repetidas---------------*/
+.card__front{
+    background-size: cover;
+    background-position: center;
+}
+
+
+.card__front,
+.card__back{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*--------------------------------------imagen invisible*/
+    /*hidden significa que la cara posterior no es visible, ocultando la cara frontal*/
+    backface-visibility: hidden;
+    /*---------------------------------------FORMA 3D DE LAS LETRAS DE ENFRENTE--------------------------*/
+    transform-style: preserve-3d;
+    border-radius: 20px;
+}
+
+.card__back{
+    /* -------------------------------------IMPORTANTE EFECTO PARA GIRAR Y  REGRESAR EJEMPLO ---------------------- */
+    transform: rotateY(180deg);
+    background: white;
+}
+
+.body__card_front{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    /* IMPORTANTE EFECTO PARA GIRAR Y QUE LAS LETRAS SE VEAN HACIA DELANTE---------------------- */
+    transform: translateZ(60px);
+}
+/*--------------------------------IMAGEN DE FONDO*/
+.bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba(0,0,0,0.4);
+    border-radius: 20px;
+}
+/*---------------------------------------parte de tras de la tarjeta--------------------------*/
+.body__card_back{
+    padding: 40px;
+    text-align: center;
+    
+}
+/*----------------TEXTO DE LA TARJETA POR DETRAS------------------------------------------*/
+.body__card_back p{
+    margin-top: 30px;
+    font-size: 18px;
+}
+

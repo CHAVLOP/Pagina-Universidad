@@ -1,0 +1,229 @@
+/* Google Font Link */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+.container{
+ position: relative;
+ margin-left: 20%;
+  max-width: 850px;
+  width: 100%;
+  background: #fff;
+  padding: 40px 30px;
+  perspective: 2700px;
+  
+}
+
+.container .cover{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  height: 100%;
+  width: 50%;
+  /*-------------------------------formulario siempre atras------------------*/
+  z-index: 98;
+  /*------------------------------------efecto --------------------*/
+  transition: all 1s ease;
+  transform-origin: left;
+  /*-----------------------------------------LETRAS---------------------------------------*/	
+  transform-style: preserve-3d;
+}
+/*---------------------------cover es el div que contiene el texto------------------------*/
+/*-----------------------------------------GIRAR: flip es la clase del enlace---------------------------------------*/	
+.container #flip:checked ~ .cover{
+  transform: rotateY(-180deg);
+}
+ .container .cover .front,
+ .container .cover .back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+/*-----------------------------------------GIRAR---------------------------------------*/	
+.cover .back{
+  transform: rotateY(180deg);
+  /*hidden significa que la cara posterior no es visible, ocultando la cara frontal*/
+  backface-visibility: hidden;
+}
+/*------------------------------cuadro de las imagenes--------------------------------------*/
+.container .cover::before,
+.container .cover::after{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #47D5D5;
+  opacity: 0.5;
+  z-index: 12;
+}
+
+.container .cover::after{
+  opacity: 0.1;
+  /*-----------------------------------------MANTENER LA OPACIDAD---------------------------------------*/	
+  transform: rotateY(180deg);
+  /*---hidden significa que la cara posterior no es visible, ocultando la cara frontal*/
+  backface-visibility: hidden;
+}
+.container .cover img{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  
+}
+/*---------------------------------------contenedor del texto-----------------------------------*/
+.container .cover .text{
+  position: absolute;
+  z-index: 130;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cover .text .text-1,
+.cover .text .text-2{
+  font-size: 26px;
+  font-weight: 600;
+  color: black;
+  text-align: center;
+}
+.cover .text .text-2{
+  font-size: 15px;
+  font-weight: 500;
+}
+/*-----------------------------------formulario-----------------------------------------*/
+.container .forms{
+  height: 100%;
+  width: 100%;
+  background: #fff;
+}
+.container .form-content{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form-content .login-form,
+.form-content .signup-form{
+  width: calc(100% / 2 - 25px);
+}
+.forms .form-content .title{
+  position: relative;
+  font-size: 24px;
+  font-weight: 500;
+  color: #333;
+}
+
+.forms .form-content .title:before{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 25px;
+  background: black;
+}
+/*--------------------------------------------raya del titulo profesor----------------------*/
+.forms .signup-form  .title:before{
+  width: 20px;
+}
+/*---------------------------------------margen del formulario total--------------*/
+.forms .form-content .input-boxes{
+  margin-top: 30px;
+}
+/*---------------------------------------diseño de los input text y botones--------------*/
+.forms .form-content .input-box{
+  display: flex;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+}
+.form-content .input-box input{
+  height: 100%;
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 0 30px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+/*--------------------------------------color de los iconos*/
+.form-content .input-box i{
+  position: absolute;
+  color: #47D5D5;
+  font-size: 17px;
+}
+/*----------------------------------------texto si eres maestro o alumno-----------*/
+.forms .form-content .text{
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+.forms .form-content .text a{
+  text-decoration: none;
+}
+/*---------------------------------------separacion de botones--------------------*/
+.forms .form-content .button{
+  color: #fff;
+  margin-top: 40px;
+}
+.forms .form-content .button input{
+  color: #fff;
+  background: #47D5D5;
+  border-radius: 6px;
+  padding: 0;
+  cursor: pointer;
+  
+}
+/*--------------------------------------------cambio de color del boton*/
+.forms .form-content .button input:hover{
+  background: #A79999;
+}
+/*--------------------------------------------cambio de roles*/
+.forms .form-content label{
+  color: #CA3535;
+  cursor: pointer;
+}
+/*--------------------------------------------dejar linea del enlace con el hover*/
+.forms .form-content label:hover{
+  text-decoration: underline;
+}
+/*--------------------------------------------ubicacion*/
+.forms .form-content .login-text,
+.forms .form-content .sign-up-text{
+  text-align: center;
+  margin-top: 25px;
+}
+.container #flip{
+  display: none;
+}
+/*--------------------------------------------formulario adaptable*/
+@media (max-width: 730px) {
+  .container .cover{
+    display: none;
+  }
+  /*------------------------------------quitar la imagen*/
+  .form-content .login-form,
+  .form-content .signup-form{
+    width: 100%;
+  }
+  .form-content .signup-form{
+    display: none;
+  }
+  .container #flip:checked ~ .forms .signup-form{
+    display: block;
+  }
+  .container #flip:checked ~ .forms .login-form{
+    display: none;
+  }
+}
