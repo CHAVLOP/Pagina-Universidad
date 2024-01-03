@@ -1,2 +1,2 @@
 Capturas de pantalla
-https://postimg.cc/gallery/H8vGk4m
+[![Captura-de-pantalla-5.png](https://i.postimg.cc/nrg48GFq/Captura-de-pantalla-5.png)](https://postimg.cc/p5Qhz8nd)
